@@ -27,6 +27,7 @@
 	"plugins":{
 		"defaultConfig":{"enabled":true},
 		"list":{
+			"es.uc3m.paella.QuestionsPlayerPlugin":{"enabled":true,"origin":"portalvideos","user":"demo"},
 			"es.upv.paella.ImageControlPlugin":{"enabled":false},
 			"es.upv.paella.ShowEditorPlugin":{"enabled":true,"alwaysVisible":true},
 			"es.upv.paella.TrimmingPlayerPlugin":{"enabled":true},
