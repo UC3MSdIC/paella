@@ -480,7 +480,7 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 				});
 			}
 		}
-		paella.data.write('questions','tests',This.tests,function(response,status) {
+		paella.data.write('events','tests',This.tests,function(response,status) {
 			
 		});
 	},

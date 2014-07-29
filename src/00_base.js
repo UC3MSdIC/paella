@@ -60,7 +60,8 @@ paella.pluginList = [
 	'videoload_test.js',
 	'qualities.js',
 	'show_editor.js',
-	'snapshots_editor.js'
+	'snapshots_editor.js',
+	'questions.js'
 ];
 
 paella.events = {
