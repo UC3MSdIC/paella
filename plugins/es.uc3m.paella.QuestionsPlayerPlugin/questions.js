@@ -74,9 +74,10 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 		}
 		else if(eventType=="paella:pause")
 		{
+			var evento2 = {};
 			if(this.isStarted)
 			{
-				var evento = {
+				    evento2 = {
 					timestamp: lastTime,
 					user: this.config.user,
 	     			origin: this.config.origin,
@@ -89,13 +90,13 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 	     			}
 	     		};
 	     	}
-	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento,function(response,status) {
+	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento2,function(response,status) {
 	     	
 			});
 		}
 		else if(eventType=="paella:endvideo")
 		{
-			var evento = {
+			var evento3 = {
 				timestamp: lastTime,
 				user: this.config.user,
 	     		origin: this.config.origin,
@@ -105,15 +106,16 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 	     			timestamp: lastTime
 	     		}
 	     	};
-	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento,function(response,status) {
+	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento3,function(response,status) {
 	     	
 			});
 		}
 	},
 
 	checkTests:function(params) {
+		var a = {};
 		for (var i=0; i<this.tests.items.length; ++i) {
-			var a = this.tests.items[i];
+			a = this.tests.items[i];
 			var b = false;
 			if ((a.starttime/1000)<params.currentTime && ((a.starttime/1000)+0.5)>params.currentTime) {
 				if(!a.showed)
@@ -131,7 +133,7 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 		
 		for (var key in this.visibleTest) {
 			if (typeof(a)=='object') {
-				var a = this.visibleTest[key];
+				    a = this.visibleTest[key];
 				if (a && ((a.starttime/1000)>=params.currentTime || ((a.starttime/1000)+0.5)<=params.currentTime)) {
 					this.removeTest(a);
 				}
@@ -149,9 +151,9 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 		strhtml = '<h1 style="font-size:140%;">'+test.title+'</h1><p style="color:#000000;font-size:100%;">'+question.text+'<p><table border=0 style="width:80%;margin-left: auto; margin-right: auto;">';
 		for(var i = 0;i < question.responsesarray.length;i++)
 		{
-			strhtml += '<tr style="vertical-align:middle;">'
+			strhtml += '<tr style="vertical-align:middle;">';
 			strhtml += '<td style="text-align:center;vertical-align:middle;"><input class = "response" type = "radio" name = "r"'+i+' id = "'+question.responsesarray[i].order+'" value = "'+question.responsesarray[i].order+'" style="margin:0px 0px 8px 0px;" /></td><td style="text-align:left;vertical-align:middle;"><label for = "r'+i+'" style="color:#000000;text-shadow:0px 0px 0;rgba(0,0,0,0);">'+question.responsesarray[i].text+'</label></td>';
-			strhtml += '</tr>'
+			strhtml += '</tr>';
 		}
 		strhtml += '<tr><td></td><td></td></tr><tr><td></td><td><button class="button" id="validate">Contestar</button></td></tr>';
 		strhtml += '</table>';
@@ -205,10 +207,10 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 				else
 				{
 					test.showed = false;
-        			var params = {};
+        			var params2 = {};
         			
-					params.time = 0;
-					paella.events.trigger(paella.events.seekToTime,params);
+					params2.time = 0;
+					paella.events.trigger(paella.events.seekToTime,params2);
 					$(document).off("click", ".button");
 					paella.messageBox.close();
 					paella.events.trigger(paella.events.play);
@@ -266,7 +268,7 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 		else
 		{
 			strhtml += '<center><font color="#FF0000">Respuesta incorrecta</font></center><p>';
-			var evento = {
+			var evento4 = {
 				timestamp: lastTime,
 				user: this.config.user,
 	     		origin: this.config.origin,
@@ -279,7 +281,7 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 	     			correct: false
 	     		}
 	     	};
-	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento,function(response,status) {
+	     	paella.data.write('events',{id:paella.initDelegate.getId()},evento4,function(response,status) {
 	     	
 			});
 		}
@@ -337,10 +339,10 @@ paella.plugins.QuestionsPlayerPlugin = Class.create(paella.EventDrivenPlugin,{
 				else
 				{
 					test.showed = false;
-        			var params = {};
+        			var params3 = {};
         			
-					params.time = 0;
-					paella.events.trigger(paella.events.seekToTime,params);
+					params3.time = 0;
+					paella.events.trigger(paella.events.seekToTime,params3);
 					$(document).off("click", ".button");
 					paella.messageBox.close();
 					paella.events.trigger(paella.events.play);
