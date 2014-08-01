@@ -37,12 +37,15 @@ button
 	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
 	cursor: pointer;
 	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
 	transition: all 150ms ease;
 }
 
 button:hover, button:focus
 {
 	-webkit-animation: pulsate 1.2s linear infinite;
+	-moz-animation: pulsate 1.2s linear infinite;
 	animation: pulsate 1.2s linear infinite;
 }
 	
@@ -66,7 +69,11 @@ button:active
 	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
 	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
 	-webkit-transform: translateY(3px);
+	-moz-transform: translateY(3px);
+	-ms-transform: translateY(3px);
+	-o-transform: translateY(3px);
 	transform: translateY(3px);
 	-webkit-animation: none;
+	-moz-animation: none;
 	animation: none;
 }
